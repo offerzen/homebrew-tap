@@ -1,4 +1,4 @@
-class ElasticsearchZadev < Formula
+class Elasticsearch < Formula
   desc "Distributed search & analytics engine"
   homepage "https://www.elastic.co/products/elasticsearch"
   url "https://github.com/elastic/elasticsearch/archive/v7.6.2.tar.gz"
