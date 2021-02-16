@@ -1,5 +1,8 @@
 # Offerzen Tap
 
+We use this tap to pin the versions of homebrew packages we need
+locally 
+
 ## How do I install these formulae?
 `brew install offerzen/tap/<formula>`
 
