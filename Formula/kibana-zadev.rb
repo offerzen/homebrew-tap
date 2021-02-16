@@ -1,4 +1,4 @@
-class Kibana < Formula
+class KibanaZadev < Formula
   desc "Analytics and search dashboard for Elasticsearch"
   homepage "https://www.elastic.co/products/kibana"
   url "https://github.com/elastic/kibana.git",
