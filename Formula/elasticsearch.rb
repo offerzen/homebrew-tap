@@ -5,10 +5,9 @@ class Elasticsearch < Formula
   sha256 "6ff4871dcae6954e13680aefc196da574a59a36418d06a7e095550ce81a370f8"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "52c9b1cd71e07cc9fe341175128832f1f721a8fd49ea63cca59ab54e1bad3f62" => :catalina
-    sha256 "50843eb82cd4f93392a09ad979d97618f2d8144cf8639c85c47ef69cd29d5e34" => :mojave
-    sha256 "6de2a2724524563fa9c9e01a189c19ec16586c712c7c1519c5f80e60410649da" => :high_sierra
+    sha256 cellar: :any_skip_relocation, catalina:    "52c9b1cd71e07cc9fe341175128832f1f721a8fd49ea63cca59ab54e1bad3f62"
+    sha256 cellar: :any_skip_relocation, mojave:      "50843eb82cd4f93392a09ad979d97618f2d8144cf8639c85c47ef69cd29d5e34"
+    sha256 cellar: :any_skip_relocation, high_sierra: "6de2a2724524563fa9c9e01a189c19ec16586c712c7c1519c5f80e60410649da"
   end
 
   depends_on "openjdk"
@@ -53,7 +52,7 @@ class Elasticsearch < Formula
                 libexec/"bin/elasticsearch-keystore",
                 libexec/"bin/elasticsearch-plugin",
                 libexec/"bin/elasticsearch-shard"
-    bin.env_script_all_files(libexec/"bin", :JAVA_HOME => Formula["openjdk"].opt_prefix)
+    bin.env_script_all_files(libexec/"bin", JAVA_HOME: Formula["openjdk"].opt_prefix)
   end
 
   def post_install
@@ -68,17 +67,15 @@ class Elasticsearch < Formula
   end
 
   def caveats
-    s = <<~EOS
+    <<~EOS
       Data:    #{var}/lib/elasticsearch/
       Logs:    #{var}/log/elasticsearch/#{cluster_name}.log
       Plugins: #{var}/elasticsearch/plugins/
       Config:  #{etc}/elasticsearch/
     EOS
-
-    s
   end
 
-  plist_options :manual => "elasticsearch"
+  plist_options manual: "elasticsearch"
 
   def plist
     <<~EOS

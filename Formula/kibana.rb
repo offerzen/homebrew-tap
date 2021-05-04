@@ -2,15 +2,14 @@ class Kibana < Formula
   desc "Analytics and search dashboard for Elasticsearch"
   homepage "https://www.elastic.co/products/kibana"
   url "https://github.com/elastic/kibana.git",
-      :tag      => "v7.6.2",
-      :revision => "c14a620411be7e6e463520eafa61fa8d7efb84ce"
+      tag:      "v7.6.2",
+      revision: "c14a620411be7e6e463520eafa61fa8d7efb84ce"
   head "https://github.com/elastic/kibana.git"
 
   bottle do
-    cellar :any_skip_relocation
-    sha256 "c5ce7fd2c2cb57b276d3fd61609712e5b4171ae65e45ad8f4ba114912c9513d0" => :catalina
-    sha256 "50a13ed2c843f98cea0f0a7067236c33295021074ffec07099912f675ec36625" => :mojave
-    sha256 "93c8a343c2122142b977c64c9c178f2c96bb1b8fdc03446f71a0961387f928e5" => :high_sierra
+    sha256 cellar: :any_skip_relocation, catalina:    "c5ce7fd2c2cb57b276d3fd61609712e5b4171ae65e45ad8f4ba114912c9513d0"
+    sha256 cellar: :any_skip_relocation, mojave:      "50a13ed2c843f98cea0f0a7067236c33295021074ffec07099912f675ec36625"
+    sha256 cellar: :any_skip_relocation, high_sierra: "93c8a343c2122142b977c64c9c178f2c96bb1b8fdc03446f71a0961387f928e5"
   end
 
   depends_on "python@3.8" => :build
@@ -52,7 +51,7 @@ class Kibana < Formula
     EOS
   end
 
-  plist_options :manual => "kibana"
+  plist_options manual: "kibana"
 
   def plist
     <<~EOS
