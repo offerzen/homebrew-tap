@@ -10,8 +10,6 @@ class Elasticsearch < Formula
     sha256 cellar: :any_skip_relocation, high_sierra: "6de2a2724524563fa9c9e01a189c19ec16586c712c7c1519c5f80e60410649da"
   end
 
-  depends_on "openjdk@11"
-
   def cluster_name
     "elasticsearch_#{ENV["USER"]}"
   end
